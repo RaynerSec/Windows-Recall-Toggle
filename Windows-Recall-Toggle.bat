@@ -7,10 +7,12 @@ CLS
 :-------------------------------------
 :: Check For Permissions
 REM  --> Check For Permissions
-IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
+IF "%PROCESSOR_ARCHITECTURE%" EQU "arm64" (
+>nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
+) ELSE IF "%PROCESSOR_ARCHITECTURE%" EQU "amd64" (
 >nul 2>&1 "%SYSTEMROOT%\SysWOW64\cacls.exe" "%SYSTEMROOT%\SysWOW64\config\system"
 ) ELSE (
->nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+>nul 2>&1 "%SYSTEMROOT%\System32\cacls.exe" "%SYSTEMROOT%\System32\config\system"
 )
 
 :: Not Admin
@@ -44,25 +46,24 @@ TITLE Windows-Recall-Toggle %VERSION%
 CLS
 for /f "tokens=4-6 delims=[] " %%G in ('ver') do set WINVER=%%G
 for /f "tokens=*" %%G in ('dism /online /get-featureinfo /featurename:recall ^| find /I "state"') do set WINDOWSRECALLSTATUS=%%G
-ECHO ........................................................................................................................
-:::   __          ___           _                          _____                _ _     _______                _      
-:::   \ \        / (_)         | |                        |  __ \              | | |   |__   __|              | |
-:::    \ \  /\  / / _ _ __   __| | _____      _____ ______| |__) |___  ___ __ _| | |______| | ___   __ _  __ _| | ___ 
-:::     \ \/  \/ / | | '_ \ / _` |/ _ \ \ /\ / / __|______|  _  // _ \/ __/ _` | | |______| |/ _ \ / _` |/ _` | |/ _ \
-:::      \  /\  /  | | | | | (_| | (_) \ V  V /\__ \      | | \ \  __/ (_| (_| | | |      | | (_) | (_| | (_| | |  __/
-:::       \/  \/   |_|_| |_|\__,_|\___/ \_/\_/ |___/      |_|  \_\___|\___\__,_|_|_|      |_|\___/ \__, |\__, |_|\___|
-:::                                                                                                 __/ | __/ |
-:::                                                                                                |___/ |___/
-:::
+ECHO .......................................................................................................................
+:::  __          ___           _                          _____                _ _     _______                _
+:::  \ \        / (_)         | |                        |  __ \              | | |   |__   __|              | |
+:::   \ \  /\  / / _ _ __   __| | _____      _____ ______| |__) |___  ___ __ _| | |______| | ___   __ _  __ _| | ___
+:::    \ \/  \/ / | | '_ \ / _` |/ _ \ \ /\ / / __|______|  _  // _ \/ __/ _` | | |______| |/ _ \ / _` |/ _` | |/ _ \
+:::     \  /\  /  | | | | | (_| | (_) \ V  V /\__ \      | | \ \  __/ (_| (_| | | |      | | (_) | (_| | (_| | |  __/
+:::      \/  \/   |_|_| |_|\__,_|\___/ \_/\_/ |___/      |_|  \_\___|\___\__,_|_|_|      |_|\___/ \__, |\__, |_|\___|
+:::                                                                                                __/ | __/ |
+:::                                                                                               |___/ |___/
 for /f "delims=: tokens=*" %%A in ('findstr /b ::: "%~f0"') do @echo(%%A
-ECHO ........................................................................................................................
+ECHO .......................................................................................................................
 ECHO.
 ECHO Windows-Recall-Toggle %VERSION%
 ECHO.
 ECHO Windows Version: %WINVER%
 ECHO.
 ECHO Windows Recall Status:
-ECHO -----------------------------
+ECHO -------------------------------
 IF /I "%WINDOWSRECALLSTATUS%" == "State : Enabled" (
     ECHO State : Enabled
 ) ELSE IF /I "%WINDOWSRECALLSTATUS%" == "State : Disabled" (
@@ -70,7 +71,7 @@ IF /I "%WINDOWSRECALLSTATUS%" == "State : Enabled" (
 ) ELSE (
     ECHO Unknown Windows Recall Status
 )
-ECHO -----------------------------
+ECHO -------------------------------
 ECHO.
 ECHO   1 - Enable Windows Recall
 ECHO   2 - Disable Windows Recall
@@ -96,7 +97,7 @@ dism /online /enable-feature /featurename:recall
 ECHO.
 for /f "tokens=*" %%G in ('dism /online /get-featureinfo /featurename:recall ^| find /I "state"') do set WINDOWSRECALLSTATUS=%%G
 ECHO Windows Recall Status:
-ECHO -----------------------------
+ECHO -------------------------------
 IF /I "%WINDOWSRECALLSTATUS%" == "State : Enabled" (
     ECHO State : Enabled
 ) ELSE IF /I "%WINDOWSRECALLSTATUS%" == "State : Disabled" (
@@ -104,7 +105,7 @@ IF /I "%WINDOWSRECALLSTATUS%" == "State : Enabled" (
 ) ELSE (
     ECHO Unknown Windows Recall Status
 )
-ECHO -----------------------------
+ECHO -------------------------------
 ECHO.
 GOTO REBOOT
 
@@ -118,7 +119,7 @@ dism /online /disable-feature /featurename:recall
 ECHO.
 for /f "tokens=*" %%G in ('dism /online /get-featureinfo /featurename:recall ^| find /I "state"') do set WINDOWSRECALLSTATUS=%%G
 ECHO Windows Recall Status:
-ECHO -----------------------------
+ECHO -------------------------------
 IF /I "%WINDOWSRECALLSTATUS%" == "State : Enabled" (
     ECHO State : Enabled
 ) ELSE IF /I "%WINDOWSRECALLSTATUS%" == "State : Disabled" (
@@ -126,7 +127,7 @@ IF /I "%WINDOWSRECALLSTATUS%" == "State : Enabled" (
 ) ELSE (
     ECHO Unknown Windows Recall Status
 )
-ECHO -----------------------------
+ECHO -------------------------------
 ECHO.
 GOTO REBOOT
 
