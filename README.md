@@ -18,12 +18,21 @@ This Batch Script Enables And Disables Microsoft Windows Recall Feature.
 - Accept The UAC Prompt
 - Follow On Screen Usage And You're Done
 
-## Star History
-<a href="https://www.star-history.com/#rc-chuah/Windows-Recall-Toggle&RaynerSec/Windows-Recall-Toggle&Date">
+## Star History (Mirror 1)
+<a href="https://www.star-history.com/#rc-chuah/Windows-Recall-Toggle&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=rc-chuah/Windows-Recall-Toggle,RaynerSec/Windows-Recall-Toggle&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=rc-chuah/Windows-Recall-Toggle,RaynerSec/Windows-Recall-Toggle&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=rc-chuah/Windows-Recall-Toggle,RaynerSec/Windows-Recall-Toggle&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=rc-chuah/Windows-Recall-Toggle&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=rc-chuah/Windows-Recall-Toggle&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=rc-chuah/Windows-Recall-Toggle&type=Date" />
+ </picture>
+</a>
+
+## Star History (Mirror 2)
+<a href="https://www.star-history.com/#RaynerSec/Windows-Recall-Toggle&Date">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=RaynerSec/Windows-Recall-Toggle&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=RaynerSec/Windows-Recall-Toggle&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=RaynerSec/Windows-Recall-Toggle&type=Date" />
  </picture>
 </a>
 
